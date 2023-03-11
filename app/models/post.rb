@@ -20,4 +20,8 @@ class Post < ApplicationRecord
     user.post_count = Post.where(user_id: user.id).count
     user.save
   end
+  
+  validates :title, presence: true, Length: { maximum: 250 }
+
+  validates :commentscounter, :likescounter, numericality: { greater_than_or_equal_to: 0 }, allow_nil: false
 end

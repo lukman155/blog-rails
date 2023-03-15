@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe 'Posts', type: :request do
   describe 'If response status was correct.' do
     it 'If response status was correct for user posts path' do

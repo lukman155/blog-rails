@@ -24,9 +24,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 School Library <a name="about-project"></a>
+# 📖 Blog <a name="about-project"></a>
 
-**School Library** is a book-borrowing management tool designed specifically for the librarians. With this app, librarians can keep track of all books in the library, as well as who borrows them and when. The app offers a simple and intuitive command line interface, making it easy to add new students or teachers, and new books to the library.
+**Blog** is a book-borrowing management tool designed specifically for the librarians. With this app, librarians can keep track of all books in the library, as well as who borrows them and when. The app offers a simple and intuitive command line interface, making it easy to add new students or teachers, and new books to the library.
 
 ## 🛠 Built With <a name="built-with"></a>
 

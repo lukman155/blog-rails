@@ -1,1 +1,27 @@
-<h1>Here is a list of posts for all user</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+ 
+    </style>
+  </head>
+
+  <body>
+    <h1>Here is a list of Users<h1/>
+      <ul>
+      <% @users.each do |user| %>
+        <li style="cursor: pointer;" >
+        <a href='users/<%= user.id %>'>
+        <%= user.name %>
+        <img  src="<%= user.photo %>" alt="Avatar" />
+        </a>
+        <% if user.postscounter > 0 %>
+        <p>Posts: <%= user.postscounter %></p>
+        <p><%= user.photo %></p>
+        <% end %>
+        <% end %>
+        </li>
+    </ul>
+  </body>
+</html>

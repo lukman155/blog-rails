@@ -13,11 +13,19 @@
         <img  src="<%= @user.photo %>" alt="Avatar" />
         <h2><%= @user.name %></h2>
         <h6>
-        <% if @user.query_posts > 0 %>
+        <% if @user.postscounter > 0 %>
           <p>Number of post(s): <%= @user.postscounter %></p>
         <% end %>
         </h6>
         </div>
+    </section>
+
+    <section>
+      <ul>
+      @user.query_posts
+
+      </ul>
+
     </section>
 
     <button>

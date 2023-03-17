@@ -8,16 +8,15 @@
   </head>
 
   <body>
-   <h1>Here is the list of Users<h1/>
     <section>
         <div>
         <img  src="<%= @user.photo %>" alt="Avatar" />
-         <h2><%= @user.name %></h2>
-         <h6>
-         <% if @user.postscounter > 0 %>
-         <p>Number of post(s): <%= @user.postscounter %></p>
-            <% end %>
-         </h6>
+        <h2><%= @user.name %></h2>
+        <h6>
+        <% if @user.query_posts > 0 %>
+          <p>Number of post(s): <%= @user.postscounter %></p>
+        <% end %>
+        </h6>
         </div>
     </section>
 

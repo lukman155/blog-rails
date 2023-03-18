@@ -1,25 +1,36 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-    </style>
-  </head>
-  <body>
-   <h1>Here is the list of Posts<h1/>
-    <ul>
-    <li>
-    <% @posts.each do |post| %>
-      <a href='posts/<%= post.id %>'>
-      <%= post.text %>
-      </a>
-    </li>
-    <p>Comments:
-    <%= post.query_comments %>
-      </p>
-      <p>likes: 3
-      </p>
-      <% end %>
-    </ul>
-  </body>
-</html>
+<section id='user-container'>
+<% if @user && @user.photo %>
+  <img src="<%= @user.photo %>" alt="image">
+<% end %>
+<% if @user %>
+  <h1><%= @user.name %></h1>
+<% end %>
+</section>
+<% if @user %>
+<p id='user-bio'><%= @user.bio %></>
+<% end %>
+<div class='post-container'>
+<% @posts.each_with_index do |post,index| %>
+<li>
+<p>Post #<%= index + 1%></p>
+<h3><%= link_to post.title, user_post_path(post.user, post) %>
+</h3>
+<p>Comments: <%+ post.comments.length %></p>
+<p>Likes: <%+ post.likes.length %></p>
+</li>
+<% if post.comments.length === 0 %>
+<li>There are no comments</li>
+<% else %>
+<li>These are current Comments.</li>
+
+<ul class='post-container'>
+<% post.query_comments.each do |comment| %>
+<li><%= comment.text %></li>
+
+<% end %>
+</ul>
+
+<% end %>
+<% end %>
+
+</div>

@@ -17,7 +17,7 @@ class Post < ApplicationRecord
 
   def update_post_counts
     user = User.find(user_id)
-    user.postcounter = Post.where(user_id: user.id).count
+    user.postscounter = Post.where(user_id: user.id).count
     user.save
   end
 

@@ -1,35 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-
-    </style>
-  </head>
-
-  <body>
-    <section>
-        <div>
-        <img  src="<%= @user.photo %>" alt="Avatar" />
-        <h2><%= @user.name %></h2>
-        <h6>
-        <% if @user.postscounter > 0 %>
-          <p>Number of post(s): <%= @user.postscounter %></p>
-        <% end %>
-        </h6>
-        </div>
-    </section>
-
-    <section>
-      <ul>
-      @user.query_posts
-
-      </ul>
-
-    </section>
-
-    <button>
-        <a href='/users/<%= @user.id%>/posts'>See all posts</a>
-    </button>
-  </body>
-</html>
+<section id='user-container'>
+<img src="<%= @user.photo %>" alt="image">
+<h1><%= @user.name%></h1>
+<p>Number of post: <%= @user.posts.length%></p>
+</section>
+<p id='user-bio'><%= @user.bio %></>
+<div class='post-container'>
+<% @user.query_posts.each_with_index do |post,index| %>
+<li>
+<p>Post #<%= index + 1%></p>
+ <h3><%= link_to post.title, controller: "posts", action: "show", user_id: @user.id, post_id: post.id %></h3>
+<p>Comments: <%+ post.comments.length %></p>
+<p>Likes: <%+ post.likes.length %></p>
+</li>
+<% end %>
+<li><%= button_to("See all the posts", user_posts_path(@user.id), method: :get)  %>
+</li>
+</div>

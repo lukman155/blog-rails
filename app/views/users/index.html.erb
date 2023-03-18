@@ -1,27 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
- 
-    </style>
-  </head>
+<% if @users.blank? %>
+<p>There are not books</p>
+<% else %>
+<p>These are current Users.</p>
 
-  <body>
-    <h1>Here is a list of Users<h1/>
-      <ul>
-      <% @users.each do |user| %>
-        <li style="cursor: pointer;" >
-        <a href='users/<%= user.id %>'>
-        <%= user.name %>
-        <img  src="<%= user.photo %>" alt="Avatar" />
-        </a>
-        <% if user.postscounter > 0 %>
-        <p>Posts: <%= user.postscounter %></p>
-        <p><%= user.photo %></p>
-        <% end %>
-        <% end %>
-        </li>
-    </ul>
-  </body>
-</html>
+<ul>
+<% @users.each do |u| %>
+<li>
+ <img src="<%= u.photo %>" alt="image">
+ <h2><%= link_to u.name, {:action => 'show', :id => u.id}  %></h2>
+ <p>Number of posts: <%= u.posts.length %> </p>
+  </li>
+<% end %>
+</ul>
+
+<% end %>

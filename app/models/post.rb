@@ -17,11 +17,11 @@ class Post < ApplicationRecord
 
   def update_post_counts
     user = User.find(user_id)
-    user.post_count = Post.where(user_id: user.id).count
+    user.postscounter = Post.where(user_id: user.id).count
     user.save
   end
 
   validates :title, presence: true, Length: { maximum: 250 }
 
-  validates :commentscounter, :likescounter, numericality: { greater_than_or_equal_to: 0 }, allow_nil: false
+  validates :commentscounter, :likescounter, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
 end

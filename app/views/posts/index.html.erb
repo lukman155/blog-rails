@@ -15,8 +15,8 @@
 <p>Post #<%= index + 1%></p>
 <h3><%= link_to post.title, user_post_path(post.user, post) %>
 </h3>
-<p>Comments: <%+ post.comments.length %></p>
-<p>Likes: <%+ post.likes.length %></p>
+<p>Comments: <%+ post.comments.length || 0 %></p>
+<p>Likes: <%+ post.likes.length || 0%></p>
 </li>
 <% if post.comments.length === 0 %>
 <li>There are no comments</li>

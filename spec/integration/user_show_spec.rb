@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Test for the user show page', type: :system do
-  context ' Check the right content for user show page' do
+  context ' Check the right content for users show page' do
     before(:each) do
       @new_user = User.create(name: 'soe sandar win',
                               photo: 'https://www.anisearch.de/images/character/cover/full/0/817.webp', bio: 'software engineer', postscounter: 0)

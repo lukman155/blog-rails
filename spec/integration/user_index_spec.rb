@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Users index page', type: :system do
   describe 'check the content of the index page' do
     before(:each) do
-      @user_one = User.create(name: 'soe sandar win',
+      @user_one = User.create(name: 'Lukman Abdulkarim',
                               photo: 'https://www.anisearch.de/images/character/cover/full/0/817.webp', bio: 'software engineer', postscounter: 0)
       @user_two = User.create(name: 'peter', photo: 'https://www.anisearch.de/images/character/cover/full/0/817.webp',
                               bio: 'software engineer', postscounter: 0)
@@ -28,7 +28,7 @@ RSpec.describe 'Users index page', type: :system do
 
     it 'When I click on a user, I am redirected to that user show page' do
       visit root_path
-      click_link 'soe sandar win'
+      click_link 'Lukman Abdulkarim'
       expect(page).to have_content('software engineer')
     end
   end

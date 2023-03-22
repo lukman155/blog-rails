@@ -5,15 +5,15 @@ RSpec.describe 'Test for the user show page', type: :system do
     before(:each) do
       @new_user = User.create(name: 'soe sandar win',
                               photo: 'https://www.anisearch.de/images/character/cover/full/0/817.webp', bio: 'software engineer', postscounter: 0)
-      @post_one = Post.create(author: @new_user, title: 'Hello', text: 'this is my first post', commentscounter: 0,
+      @post_one = Post.create(user: @new_user, title: 'Hello', text: 'this is my first post', commentscounter: 0,
                               likescounter: 0)
-      @post_two = Post.create(author: @new_user, title: 'jobs', text: 'I am gonna get a jon in may', commentscounter: 0,
+      @post_two = Post.create(user: @new_user, title: 'jobs', text: 'I am gonna get a jon in may', commentscounter: 0,
                               likescounter: 0)
-      @post_three = Post.create(author: @new_user, title: 'life', text: 'i will get out of this life',
+      @post_three = Post.create(user: @new_user, title: 'life', text: 'i will get out of this life',
                                 commentscounter: 0, likescounter: 0)
-      @post_four = Post.create(author: @new_user, title: 'relocation', text: 'i will go to singapore',
+      @post_four = Post.create(user: @new_user, title: 'relocation', text: 'i will go to singapore',
                                commentscounter: 0, likescounter: 0)
-      @post_five = Post.create(author: @new_user, title: 'Nizam', text: 'I will visit the Europe', commentscounter: 0,
+      @post_five = Post.create(user: @new_user, title: 'Nizam', text: 'I will visit the Europe', commentscounter: 0,
                                likescounter: 0)
     end
 

@@ -9,11 +9,13 @@ class PostsController < ApplicationController
       format.html { render :new, locals: { post: @post } }
     end
   end
+
   def show
     @post = Post.find(params[:id])
     @user = User.find(params[:user_id])
     @comments = @post.recent_comments
   end
+
   def create
     @post = current_user.posts.new(post_params)
     respond_to do |format|
@@ -24,7 +26,9 @@ class PostsController < ApplicationController
       end
     end
   end
+
   private
+
   def post_params
     params.require(:post).permit(:title, :text)
   end

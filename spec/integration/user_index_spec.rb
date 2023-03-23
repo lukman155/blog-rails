@@ -7,13 +7,13 @@ RSpec.describe 'Users index page', type: :system do
                               photo: 'https://www.anisearch.de/images/character/cover/full/0/817.webp', bio: 'software engineer', postscounter: 0)
       @user_two = User.create(name: 'peter', photo: 'https://www.anisearch.de/images/character/cover/full/0/817.webp',
                               bio: 'software engineer', postscounter: 0)
-      @user_three = User.create(name: 'Nizamuddin',
+      @user_three = User.create(name: 'Girma Tarekegn',
                                 photo: 'https://www.anisearch.de/images/character/cover/full/0/817.webp', bio: 'software engineer')
     end
 
     it 'show the right content' do
       visit root_path
-      expect(page).to have_content('These are current Users.')
+      expect(page).to have_content('These are the current Users.')
     end
 
     it 'profile picture for each user.' do

@@ -1,25 +1,24 @@
 <section id='post-container'>
 <div id='post-header'>
-<p>Post # <%= @post.id %> by <% if @user %><%= @user.name %><% end %></p>
+<p>Post # <%= @post.id %> by <%= @user.name%></p>
 <p>Post # <%= @post.title %> by <%= @user.name%></p>
 <p>Comments <% @post.comments.length %>, Likes: <% @post.likes.length %></p>
 </div>
 <p class='post-body'><%= @post.text %></p>
-
 <% if @post.comments.length === 0 %>
 <p>There are no comments</p>
 <% else %>
-<p>These are current Comments.</p>
+<p>These are the current Comments.</p>
 
 <ul>
-<% @post.query_comments.each do |comment| %>
-  <li><%= comment.text %> by <%= @user.name %>
-  <%= form_with url: "/users/#{@post.user.id}/posts/#{@post.id}/likes" do |f| %>
-        <%= f.submit 'Like' %>
-      <%end%></li>
-
+<% @post.recent_comments.each do |comment| %>
+<li><%= comment.text %> 
+<li><%= comment.text %> by <%= @user.name %>
+<%= form_with url: "/users/#{@post.user.id}/posts/#{@post.id}/likes" do |f| %>
+      <%= f.submit 'Like' %>
+    <%end%></li>
+ 
 <% end %>
 </ul>
-
 <% end %>
 </section>

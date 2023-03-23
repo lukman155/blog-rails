@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :comments
 
-  def query_comments
+  def recent_comments
     Comment.where(post_id: id).order(created_at: :desc).limit(5)
   end
 

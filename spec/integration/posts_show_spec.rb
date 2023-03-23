@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Posts show page', type: :feature do
+RSpec.describe 'Posts show page', type: :system do
   describe 'check the content of the show page' do
     before(:each) do
       @user_one = User.create(name: 'Lukman Abdulkarim',

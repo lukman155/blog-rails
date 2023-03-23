@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Users index page', type: :feature do
+RSpec.describe 'Users index page', type: :system do
   describe 'check the content of the index page' do
     before(:each) do
       @user_one = User.create(name: 'Lukman Abdulkarim',
@@ -13,7 +13,7 @@ RSpec.describe 'Users index page', type: :feature do
 
     it 'show the right content' do
       visit root_path
-      expect(page).to have_content('These are the current Users.')
+      expect(page).to have_content('These are current Users.')
     end
 
     it 'profile picture for each user.' do

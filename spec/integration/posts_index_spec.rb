@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Posts index page', type: :system do
+RSpec.describe 'Posts index page', type: :feature do
   describe 'check the content of the index page' do
     before(:each) do
       @user_one = User.create(name: 'Lukman Abdulkarim',

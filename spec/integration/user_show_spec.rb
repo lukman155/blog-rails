@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Test for the user show page', type: :system do
+RSpec.describe 'Test for the user show page', type: :feature do
   context ' Check the right content for users show page' do
     before(:each) do
       @new_user = User.create(name: 'Lukman Abdulkarim',
@@ -50,7 +50,7 @@ RSpec.describe 'Test for the user show page', type: :system do
 
     it 'User click see all posts, it redirects me to the user\'s post\'s index page' do
       visit user_path(@new_user)
-      click_link 'See all the posts'
+      click_button 'See all the posts'
       expect(page).to have_content('relocation')
     end
   end

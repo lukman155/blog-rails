@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
   def index
     @user = User.includes(:posts, :comments, :likes).find_by_id(params[:user_id])
-    @posts = @user.posts.order(created_at: :desc)
-    @comments = Comment.includes(:user).where(post_id: @posts.ids).order(created_at: :desc)
   end
 
   def new
@@ -20,6 +18,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post }

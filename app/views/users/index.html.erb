@@ -1,5 +1,6 @@
+
 <% if @users.blank? %>
-<p>There are not books</p>
+<p>There are no users</p>
 <% else %>
 <p>These are current Users.</p>
 
@@ -9,8 +10,7 @@
  <img src="<%= u.photo %>" alt="image">
  <h2><%= link_to u.name, {:action => 'show', :id => u.id}  %></h2>
  <p>Number of posts: <%= u.posts.length %> </p>
-  </li>
+</li>
 <% end %>
 </ul>
-
 <% end %>

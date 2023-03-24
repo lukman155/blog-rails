@@ -1,4 +1,5 @@
 <section id='post-container'>
+<%= button_to "Sign out", destroy_user_session_path, method: :delete %>
 <div id='post-header'>
 <p>Post # <%= @post.id %> by <%= @user.name%></p>
 <p>Post # <%= @post.title %> by <%= @user.name%></p>

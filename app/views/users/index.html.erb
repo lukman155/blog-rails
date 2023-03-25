@@ -1,4 +1,4 @@
-
+<%= button_to "Sign out", destroy_user_session_path, method: :delete %>
 <% if @users.blank? %>
 <p>There are no users</p>
 <% else %>

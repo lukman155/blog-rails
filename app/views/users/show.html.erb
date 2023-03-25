@@ -1,3 +1,4 @@
+<%= button_to "Sign out", destroy_user_session_path, method: :delete %>
 <section id='user-container'>
 <img src="<%= @user.photo %>" alt="image">
 <h1><%= @user.name%></h1>

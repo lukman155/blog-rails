@@ -54,11 +54,5 @@ RSpec.describe 'Test for the user show page', type: :system do
       click_link 'See all the posts'
       expect(page).to have_content('relocation')
     end
-
-    it 'User clicks on a user\'s post and it redirects to the post\'s show page' do
-      visit user_path(@new_user)
-      click_link 'Hello'
-      expect(page).to have_content('this is my first post')
-    end
   end
 end

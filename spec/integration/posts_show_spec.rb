@@ -5,9 +5,9 @@ RSpec.describe 'Posts show page', type: :system do
     before(:each) do
       @user_one = User.create(name: 'Lukman',
                               photo: 'https://www.anisearch.de/images/character/cover/full/0/817.webp', bio: 'software engineer', postscounter: 0)
-      @post_one = Post.create(user: @user_one, title: 'Hello', text: 'this is my first post', commentscounter: 0,
+      @post_one = Post.create(user: @user_one, title: 'Hello', text: 'this is my first post', commentscounter: 1,
                               likescounter: 2)
-      @post_two = Post.create(user: @user_one, title: 'jobs', text: 'I am gonna get a job in may', commentscounter: 0,
+      @post_two = Post.create(user: @user_one, title: 'jobs', text: 'I am gonna get a job in may', commentscounter: 1,
                               likescounter: 2)
       @comment = Comment.create(post: @post_one, user: @user_one, text: 'hi nice to meet you')
     end

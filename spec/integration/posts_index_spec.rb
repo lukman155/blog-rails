@@ -4,7 +4,7 @@ RSpec.describe 'Posts index page', type: :system do
   describe 'check the content of the index page' do
     before(:each) do
       @user_one = User.create(name: 'Lukman',
-                              photo: 'https://www.anisearch.de/images/character/cover/full/0/817.webp', bio: 'software engineer', postscounter: 0)
+                              photo: 'https://www.anisearch.de/images/character/cover/full/0/817.webp', bio: 'software engineer', postscounter: 2)
       @post_one = Post.create(user: @user_one, title: 'Hello', text: 'this is not my first post', commentscounter: 0,
                               likescounter: 0)
       @post_two = Post.create(user: @user_one, title: 'jobs', text: 'I am gonna get a job in may', commentscounter: 0,
@@ -39,12 +39,23 @@ RSpec.describe 'Posts index page', type: :system do
       expect(page).to have_content('Likes:')
     end
 
-    it 'User should see the pagination button ' do
+    it 'User should see the pagination button' do
       visit user_posts_path(@user_one)
       expect(page).to have_content('Pagination')
     end
 
-    it 'User should see the show page ' do
+    it 'User should see the number of posts the user has written' do
+      visit user_posts_path(@user_one)
+      expect(page).to have_content('Number of Posts:')
+      expect(page).to have_content(@user_one.postscounter)
+    end
+
+    it 'User should see some of the post body' do
+      visit user_posts_path(@user_one)
+      expect(page).to have_content('I am gonna get a job in may')
+    end
+
+    it 'User should see the show page' do
       visit user_posts_path(@user_one)
       click_link 'Hello'
       expect(page).to have_content('this is not my first post')

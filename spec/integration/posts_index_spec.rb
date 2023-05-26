@@ -1,13 +1,14 @@
 require 'rails_helper'
+# require 'support/shared_examples/shared_examples_for_a_resource_with_a_uuid'
 
 RSpec.describe 'Posts index page', type: :system do
   describe 'check the content of the index page' do
     before(:each) do
-      @user_one = User.create(name: 'Lukman Abdulkarim',
+      @user_one = User.create(name: 'Lukman',
                               photo: 'https://www.anisearch.de/images/character/cover/full/0/817.webp', bio: 'software engineer', postscounter: 0)
-      @post_one = Post.create(user: @user_one, title: 'Hello', text: 'this is my first post', commentscounter: 0,
+      @post_one = Post.create(user: @user_one, title: 'Hello', text: 'this is my not first post', commentscounter: 0,
                               likescounter: 0)
-      @post_two = Post.create(user: @user_one, title: 'jobs', text: 'I am gonna get a jon in may', commentscounter: 0,
+      @post_two = Post.create(user: @user_one, title: 'jobs', text: 'I am gonna get a job in may', commentscounter: 0,
                               likescounter: 0)
       @comment = Comment.create(post: @post_two, user: @user_one, text: 'hi nice to meet you')
     end
@@ -19,7 +20,7 @@ RSpec.describe 'Posts index page', type: :system do
 
     it 'User should see the other user name' do
       visit user_posts_path(@user_one)
-      expect(page).to have_content('Lukman Abdulkarim')
+      expect(page).to have_content('Lukman')
     end
 
     it 'User should see the post title' do
@@ -47,7 +48,7 @@ RSpec.describe 'Posts index page', type: :system do
     it 'User should see the show page ' do
       visit user_posts_path(@user_one)
       click_link 'Hello'
-      expect(page).to have_content('this is my first post')
+      expect(page).to have_content('this is not my first post')
     end
   end
 end

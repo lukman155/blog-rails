@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Test for the user show page', type: :system do
   context ' Check the right content for users show page' do
     before(:each) do
-      @new_user = User.create(name: 'Lukman Abdulkarim',
+      @new_user = User.create(name: 'Yash',
                               photo: 'https://www.anisearch.de/images/character/cover/full/0/817.webp', bio: 'software engineer', postscounter: 0)
       @post_one = Post.create(user: @new_user, title: 'Hello', text: 'this is my first post', commentscounter: 0,
                               likescounter: 0)
@@ -24,12 +24,12 @@ RSpec.describe 'Test for the user show page', type: :system do
 
     it 'User should see the user\'s username' do
       visit user_path(@new_user)
-      expect(page).to have_content('Lukman Abdulkarim')
+      expect(page).to have_content('Yash')
     end
 
     it 'User should see the number of posts the user has written' do
       visit user_path(@new_user)
-      expect(page).to have_content('Lukman Abdulkarim')
+      expect(page).to have_content('Yash')
     end
 
     it 'User should see the see the user\'s bio' do

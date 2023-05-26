@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Posts show page', type: :system do
   describe 'check the content of the show page' do
     before(:each) do
-      @user_one = User.create(name: 'Lukman Abdulkarim',
+      @user_one = User.create(name: 'Lukman',
                               photo: 'https://www.anisearch.de/images/character/cover/full/0/817.webp', bio: 'software engineer', postscounter: 0)
       @post_one = Post.create(user: @user_one, title: 'Hello', text: 'this is my first post', commentscounter: 0,
                               likescounter: 0)
@@ -21,7 +21,7 @@ RSpec.describe 'Posts show page', type: :system do
     it 'User should see wrote the post' do
       visit user_post_path(@user_one, @post_one)
       sleep(1)
-      expect(page).to have_content('Lukman Abdulkarim')
+      expect(page).to have_content('Lukman')
     end
 
     it 'User should see  the post body ' do
@@ -39,7 +39,7 @@ RSpec.describe 'Posts show page', type: :system do
     it 'User should see user name who comment ' do
       visit user_post_path(@user_one, @post_one)
       sleep(1)
-      expect(page).to have_content('Lukman Abdulkarim')
+      expect(page).to have_content('Lukman')
     end
   end
 end

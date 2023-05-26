@@ -1,5 +1,4 @@
 require 'rails_helper'
-# require 'support/shared_examples/shared_examples_for_a_resource_with_a_uuid'
 
 RSpec.describe 'Posts index page', type: :system do
   describe 'check the content of the index page' do

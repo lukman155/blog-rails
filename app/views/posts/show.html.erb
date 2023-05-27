@@ -3,14 +3,13 @@
 <div id='post-header'>
 <p>Post # <%= @post.id %> by <%= @user.name%></p>
 <p>Post # <%= @post.title %> by <%= @user.name%></p>
-<p>Comments <% @post.comments.length %>, Likes: <% @post.likes.length %></p>
+<p>Comments: <%= @post.commentscounter %>, Likes: <%= @post.likescounter %></p>
 </div>
 <p class='post-body'><%= @post.text %></p>
 <% if @post.comments.length === 0 %>
 <p>There are no comments</p>
 <% else %>
 <p>These are the current Comments.</p>
-
 <ul>
 <% @post.recent_comments.each do |comment| %>
 <li><%= comment.text %> 

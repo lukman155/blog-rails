@@ -14,6 +14,7 @@ class User < ApplicationRecord
     posts.order(created_at: :desc).limit(3)
   end
 
-  validates :name, presence: true
+  validates :email, format: { with: /\A[^@\s]+@[^@\s]+\z/ }
+  validates :email, uniqueness: true
   validates :postscounter, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
 end
